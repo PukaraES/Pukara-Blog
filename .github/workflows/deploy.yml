@@ -1,0 +1,25 @@
+name: Deploy Pukara Blog Theme
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "themes/blog-pukaradev/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy theme via FTP
+        uses: samueljohn/ftp-action@v1
+        with:
+          ftp-server: fusm4.siteground.biz
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: themes/blog-pukaradev
+          remote-dir: /wp-content/themes/blogpukara
