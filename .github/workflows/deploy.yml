@@ -22,5 +22,5 @@ jobs:
           server: fusm4.siteground.biz
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: themes/blog-pukaradev
-          server-dir: /wp-content/themes/blogpukara
+          local-dir: themes/blog-pukaradev/
+          server-dir: /wp-content/themes/blogpukara/
